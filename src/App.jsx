@@ -18,7 +18,7 @@ function ToggleButton() {
       >
         <rect width="45" height="22" rx="11" fill="#817F75" />
         <circle
-          cx={on ? 34 : 11}
+          cx={on ? 11 : 34}
           cy="11"
           r="9"
           fill="#E3DCDC"
@@ -724,16 +724,26 @@ function AppMain() {
 
         {/* טקסט בצד ימין */}
         <div className="flex flex-row-reverse items-center justify-end gap-36">
-          <span className="text-[#817F75] text-[26px] font-normal tracking-[0.2em] cursor-pointer hover:text-white transition-colors">
+          <span 
+            className="text-[#E3DCDC] text-[30px] font-[400] leading-[106%] text-right" 
+            style={{ 
+              fontFamily: '80-kb',
+              letterSpacing: '17%',
+              width: '101.9px',
+              height: '21px',
+              opacity: 0.79,
+              fontStyle: 'Sharp'
+            }}
+          >
             אותות
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
             השוואות
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
             ציר זמן
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
             מקורות
           </span>
         </div>
@@ -741,7 +751,7 @@ function AppMain() {
 
       <main className="flex flex-col items-center justify-center mt-20">
         {/* שורה ראשונה */}
-        <div className="flex justify-center gap-56">
+        <div className="flex justify-center gap-38">
           <div onClick={() => navigate("/independence")}> {/* ניווט */}
             <RibbonLeft />
           </div>
@@ -753,7 +763,7 @@ function AppMain() {
           </div>
         </div>
         {/* שורה שנייה */}
-        <div className="flex justify-center gap-56 mt-32">
+        <div className="flex justify-center gap-38 mt-32">
           <div>
             <SecondRowLeft />
           </div>
@@ -765,7 +775,7 @@ function AppMain() {
           </div>
         </div>
         {/* שורה שלישית */}
-        <div className="flex justify-center gap-56 mt-32">
+        <div className="flex justify-center gap-38 mt-32">
           <div>
             <ThirdRowLeft />
           </div>
@@ -777,7 +787,7 @@ function AppMain() {
           </div>
         </div>
         {/* שורה רביעית */}
-        <div className="flex justify-center gap-56 mt-32">
+        <div className="flex justify-center gap-38 mt-32">
           <div>
             <FourthRowLeft />
           </div>
