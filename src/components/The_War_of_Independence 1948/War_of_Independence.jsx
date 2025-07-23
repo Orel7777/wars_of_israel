@@ -161,21 +161,58 @@ function WarOfIndependence() {
       </div>
 
       <main className="flex flex-col items-center justify-center mt-20">
-        <h1 
+        {/* קו אופקי במרכז */}
+        <div 
           style={{
-            fontFamily: '80-kb',
-            fontWeight: 700,
-            fontSize: '36px',
-            lineHeight: '106%',
-            letterSpacing: '17%',
-            textAlign: 'center',
-            opacity: 0.79,
-            color: '#ffffff',
-            marginTop: '128px'
+            width: '777px',
+            height: '1px',
+            backgroundColor: '#817F75',
+            opacity: 1,
+            marginTop: '50px'
           }}
-        >
-          מלחמת העצמאות
-        </h1>
+        />
+        
+        {/* קו אנכי צמוד לקו האופקי בצד ימין */}
+        <div 
+          style={{
+            width: '1px',
+            height: '207px',
+            backgroundColor: '#817F75',
+            opacity: 1,
+            position: 'absolute',
+            left: 'calc(50% + 388.5px)',
+            top: '57.2%', // שנה ל-'30%' להזזה למעלה, ל-'70%' להזזה למטה, ל-'100px' מהחלק העליון, או השאר '50%' למרכז
+            transform: 'translateY(-50%)'
+          }}
+        />
+        
+        {/* קו אנכי צמוד לקו האופקי בצד שמאל */}
+        <div 
+          style={{
+            width: '1px',
+            height: '207px',
+            backgroundColor: '#817F75',
+            opacity: 1,
+            position: 'absolute',
+            left: 'calc(50% - 388.5px)',
+            top: '57.2%', // שנה ל-'30%' להזזה למעלה, ל-'70%' להזזה למטה, ל-'100px' מהחלק העליון, או השאר '50%' למרכז
+            transform: 'translateY(-50%)'
+          }}
+        />
+        
+        {/* קו אופקי תחתון להשלמת המלבן */}
+        <div 
+          style={{
+            width: '777px',
+            height: '1px',
+            backgroundColor: '#817F75',
+            opacity: 1,
+            position: 'absolute',
+            left: '50%',
+            top: 'calc(57.2% + 103.5px)', // 57.2% + חצי גובה הקווים האנכיים (207/2 = 103.5px)
+            transform: 'translateX(-50%)'
+          }}
+        />
       </main>
 
       {/* SVG וטקסט בצד שמאל למטה */}
