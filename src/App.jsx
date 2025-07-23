@@ -745,27 +745,33 @@ function AppMain() {
               letterSpacing: "17%",
               textAlign: "right",
               opacity: 0.79,
-              color: "#E3DCDC"
+              color: "#E3DCDC",
+              cursor: "pointer"
             }}
+            className="hover:text-white transition-colors"
+            onClick={() => console.log("אותות clicked")}
           >
             אותות
           </span>
 
           <span
-            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right cursor-pointer hover:text-white transition-colors"
             style={{ fontFamily: "80-kb" }}
+            onClick={() => console.log("השוואות clicked")}
           >
             השוואות
           </span>
           <span
-            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right cursor-pointer hover:text-white transition-colors"
             style={{ fontFamily: "80-kb" }}
+            onClick={() => console.log("ציר זמן clicked")}
           >
             ציר זמן
           </span>
           <span
-            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right cursor-pointer hover:text-white transition-colors"
             style={{ fontFamily: "80-kb" }}
+            onClick={() => console.log("מקורות clicked")}
           >
             מקורות
           </span>
