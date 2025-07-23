@@ -35,23 +35,58 @@ function WarOfIndependence() {
         <ToggleButton />
 
         {/* טקסט בצד ימין */}
-        <div className="flex flex-row-reverse items-center justify-end gap-36">
-          <span className="text-[#817F75] text-[26px] font-normal tracking-[0.2em] cursor-pointer hover:text-white transition-colors">
+                <div className="flex flex-row-reverse items-center justify-end gap-36">
+          <span
+            style={{
+              fontFamily: "80-kb",
+              fontWeight: 400,
+              fontSize: "30px",
+              lineHeight: "106%",
+              letterSpacing: "17%",
+              textAlign: "right",
+              opacity: 0.79,
+              color: "#E3DCDC"
+            }}
+          >
             אותות
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             השוואות
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             ציר זמן
           </span>
-          <span className="text-[#817F75] text-[15px] font-normal cursor-pointer hover:text-white transition-colors">
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             מקורות
           </span>
         </div>
       </div>
       <main className="flex flex-col items-center justify-center mt-20">
-        <h1 className="text-white text-4xl font-bold mt-32">מלחמת העצמאות</h1>
+        <h1 
+          style={{
+            fontFamily: '80-kb',
+            fontWeight: 700,
+            fontSize: '36px',
+            lineHeight: '106%',
+            letterSpacing: '17%',
+            textAlign: 'center',
+            opacity: 0.79,
+            color: '#ffffff',
+            marginTop: '128px'
+          }}
+        >
+          מלחמת העצמאות
+        </h1>
       </main>
     </div>
   );

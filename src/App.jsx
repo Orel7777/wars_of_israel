@@ -696,7 +696,13 @@ function NavItem({ text, size = "text-[15px]", onClick }) {
 function FourthRowLeft() {
   return (
     <div className="cursor-pointer hover:opacity-80 transition-opacity">
-      <svg width="280" height="60" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="280"
+        height="60"
+        viewBox="0 0 280 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <rect width="280" height="60" fill="#817F75" fillOpacity="0.29" />
       </svg>
     </div>
@@ -706,7 +712,13 @@ function FourthRowLeft() {
 function FourthRowCenter() {
   return (
     <div className="cursor-pointer hover:opacity-80 transition-opacity">
-      <svg width="282" height="62" viewBox="0 0 282 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="282"
+        height="62"
+        viewBox="0 0 282 62"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <rect x="0.5" y="0.5" width="281" height="61" stroke="#817F75" />
       </svg>
     </div>
@@ -724,26 +736,37 @@ function AppMain() {
 
         {/* טקסט בצד ימין */}
         <div className="flex flex-row-reverse items-center justify-end gap-36">
-          <span 
-            className="text-[#E3DCDC] text-[30px] font-[400] leading-[106%] text-right" 
-            style={{ 
-              fontFamily: '80-kb',
-              letterSpacing: '17%',
-              // width: '101.9px',
-              // height: '21px',
+          <span
+            style={{
+              fontFamily: "80-kb",
+              fontWeight: 400,
+              fontSize: "30px",
+              lineHeight: "106%",
+              letterSpacing: "17%",
+              textAlign: "right",
               opacity: 0.79,
-              fontStyle: 'Sharp'
+              color: "#E3DCDC"
             }}
           >
             אותות
           </span>
-          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
+
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             השוואות
           </span>
-          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             ציר זמן
           </span>
-          <span className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right" style={{ fontFamily: '80-kb' }}>
+          <span
+            className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right"
+            style={{ fontFamily: "80-kb" }}
+          >
             מקורות
           </span>
         </div>
@@ -752,7 +775,9 @@ function AppMain() {
       <main className="flex flex-col items-center justify-center mt-20">
         {/* שורה ראשונה */}
         <div className="flex justify-center gap-38">
-          <div onClick={() => navigate("/independence")}> {/* ניווט */}
+          <div onClick={() => navigate("/independence")}>
+            {" "}
+            {/* ניווט */}
             <RibbonLeft />
           </div>
           <div>
