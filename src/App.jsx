@@ -729,8 +729,8 @@ function AppMain() {
             style={{ 
               fontFamily: '80-kb',
               letterSpacing: '17%',
-              width: '101.9px',
-              height: '21px',
+              // width: '101.9px',
+              // height: '21px',
               opacity: 0.79,
               fontStyle: 'Sharp'
             }}
