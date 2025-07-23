@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ToggleButton() {
   const [on, setOn] = useState(false);
@@ -28,6 +29,12 @@ function ToggleButton() {
 }
 
 function WarOfIndependence() {
+  const navigate = useNavigate();
+
+  const handleSignalsClick = () => {
+    navigate('/');
+  };
+
   return (
     <div className="bg-[#262626] w-full h-full min-h-screen">
       <div className="w-full flex flex-row items-start justify-between pt-[101px] px-28 select-none">
@@ -123,8 +130,8 @@ function WarOfIndependence() {
               color: "#E3DCDC",
               cursor: "pointer"
             }}
-            className="hover:text-white transition-colors"
-           
+                        className="hover:text-white transition-colors"
+            onClick={handleSignalsClick}           
           >
             אותות
           </span>

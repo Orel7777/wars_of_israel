@@ -728,6 +728,10 @@ function FourthRowCenter() {
 function AppMain() {
   const navigate = useNavigate();
 
+  const handleSignalsClick = () => {
+    navigate('/');
+  };
+
   return (
     <div className="bg-[#262626] w-full h-full min-h-screen">
       <div className="w-full flex flex-row items-center justify-between pt-[101px] px-28 select-none">
@@ -749,7 +753,7 @@ function AppMain() {
               cursor: "pointer"
             }}
             className="hover:text-white transition-colors"
-            onClick={() => console.log("אותות clicked")}
+            onClick={handleSignalsClick}
           >
             אותות
           </span>
