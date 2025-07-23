@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import WarOfIndependence from "./components/The_War_of_Independence 1948/War_of_Independence";
 
 function ToggleButton() {
   const [on, setOn] = useState(false);
@@ -711,13 +713,8 @@ function FourthRowCenter() {
   );
 }
 
-function App() {
-  // const [selectedRibbon, setSelectedRibbon] = useState(null);
-
-  // const handleRibbonClick = (ribbonName) => {
-  //   setSelectedRibbon(ribbonName);
-  //   console.log(`נלחץ על ${ribbonName}`);
-  // };
+function AppMain() {
+  const navigate = useNavigate();
 
   return (
     <div className="bg-[#262626] w-full h-full min-h-screen">
@@ -742,35 +739,31 @@ function App() {
         </div>
       </div>
 
-
-{/* קבצי SVG */}
       <main className="flex flex-col items-center justify-center mt-20">
         {/* שורה ראשונה */}
         <div className="flex justify-center gap-56">
-          <div onClick={() => { /* סרט שמאל - שורה שנייה */ }}>
+          <div onClick={() => navigate("/independence")}> {/* ניווט */}
             <RibbonLeft />
           </div>
-          <div onClick={() => { /* סרט אמצע - שורה שנייה */ }}>
+          <div>
             <RibbonCenter />
           </div>
-          <div onClick={() => { /* סרט ימין - שורה שנייה */ }}>
+          <div>
             <RibbonRight />
           </div>
         </div>
-  
         {/* שורה שנייה */}
         <div className="flex justify-center gap-56 mt-32">
-          <div onClick={() => { /* סרט שמאל - שורה שנייה */ }}> 
+          <div>
             <SecondRowLeft />
           </div>
-          <div onClick={() => { /* סרט אמצע - שורה שנייה */ }}> 
+          <div>
             <SecondRowCenter />
           </div>
-          <div onClick={() => { /* סרט ימין - שורה שנייה */ }}> 
+          <div>
             <SecondRowRight />
           </div>
         </div>
-
         {/* שורה שלישית */}
         <div className="flex justify-center gap-56 mt-32">
           <div>
@@ -783,7 +776,6 @@ function App() {
             <ThirdRowRight />
           </div>
         </div>
-
         {/* שורה רביעית */}
         <div className="flex justify-center gap-56 mt-32">
           <div>
@@ -794,9 +786,19 @@ function App() {
           </div>
           <div className="w-[282px]"></div>
         </div>
-
       </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppMain />} />
+        <Route path="/independence" element={<WarOfIndependence />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
