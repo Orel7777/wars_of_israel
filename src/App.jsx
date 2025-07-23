@@ -740,8 +740,8 @@ function AppMain() {
 
         {/* טקסט בצד ימין */}
         <div className="flex flex-row-reverse items-center justify-end gap-36">
-          <span
-            style={{
+          <span 
+            style={{ 
               fontFamily: "80-kb",
               fontWeight: 400,
               fontSize: "30px",

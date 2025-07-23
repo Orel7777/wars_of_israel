@@ -40,7 +40,7 @@ function WarOfIndependence() {
       <div className="w-full flex flex-row items-start justify-between pt-[101px] px-28 select-none">
         {/* כפתור והטקסטים מתחתיו */}
         <div className="flex flex-col items-center gap-6">
-          <ToggleButton />
+        <ToggleButton />
           <div className="flex flex-col items-center gap-6 mt-8">
             <span
               className="text-[#817F75] cursor-pointer hover:text-white transition-colors"
@@ -168,9 +168,11 @@ function WarOfIndependence() {
             height: '1px',
             backgroundColor: '#817F75',
             opacity: 1,
-            marginTop: '50px'
+            marginTop: '138px'
           }}
         />
+
+        
         
         {/* קו אנכי צמוד לקו האופקי בצד ימין */}
         <div 
@@ -213,7 +215,101 @@ function WarOfIndependence() {
             transform: 'translateX(-50%)'
           }}
         />
+        
+        {/* 10 קווים אנכיים בתוך המלבן - 4 שמאל, 2 אמצע, 4 ימין */}
+        
+        {/* קבוצה שמאלית - 4 קווים */}
+        <div style={{ position: 'absolute', left: 'calc(50% - 320px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% - 280px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% - 240px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% - 200px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        
+        {/* קבוצה אמצעית - 2 קווים */}
+        <div style={{ position: 'absolute', left: 'calc(50% - 20px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% + 20px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        
+        {/* קבוצה ימנית - 4 קווים */}
+        <div style={{ position: 'absolute', left: 'calc(50% + 200px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% + 240px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% + 280px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
+        <div style={{ position: 'absolute', left: 'calc(50% + 320px)', top: '57.2%', width: '1px', height: '207px', backgroundColor: '#817F75', transform: 'translateY(-50%)' }} />
       </main>
+
+
+
+
+
+
+      {/* טור מתחת למילה אותות - עטוף בדיב אחד */}
+      <div className="absolute" style={{ 
+        right: 'calc(50% - 820px)', // מיקום במרכז המילה "אותות" - שנה את הערך הזה לשליטה במיקום
+        top: '330px' // שנה את הערך הזה לשליטה במיקום האנכי
+      }}>
+        {/* ריבוע ראשון למעלה */}
+        <div style={{ width: '22px', height: '24px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 6 פסים עם מרווחים */}
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '8px' }} />
+        
+        {/* ריבוע קטן */}
+        <div style={{ width: '22px', height: '5px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 15 פסים - הגדלתי מ-10 ל-15 */}
+        {Array.from({ length: 10 }, (_, i) => (
+          <div key={`line1-${i}`} style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        ))}
+        
+        {/* ריבוע */}
+        <div style={{ width: '22px', height: '5px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* ריבוע גבוה */}
+        <div style={{ width: '22px', height: '28px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 2 פסים */}
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        <div style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '8px' }} />
+        
+        {/* ריבוע */}
+        <div style={{ width: '22px', height: '5px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 10 פסים - הגדלתי מ-6 ל-10 */}
+        {Array.from({ length: 8 }, (_, i) => (
+          <div key={`line2-${i}`} style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        ))}
+        
+        {/* ריבוע */}
+        <div style={{ width: '22px', height: '5px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 30 פסים - הגדלתי מ-23 ל-30 */}
+        {Array.from({ length: 24 }, (_, i) => (
+          <div key={`line3-${i}`} style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '4px' }} />
+        ))}
+        
+        {/* ריבוע */}
+        <div style={{ width: '22px', height: '5px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* 12 פסים - הגדלתי מ-7 ל-12 */}
+        {Array.from({ length: 7 }, (_, i) => (
+          <div key={`line4-${i}`} style={{ width: '22px', height: '1px', backgroundColor: '#817F75', border: '1px solid #44433E', marginBottom: '6px' }} />
+        ))}
+        
+        {/* ריבוע בינוני */}
+        <div style={{ width: '22px', height: '18px', backgroundColor: '#817F75', marginBottom: '8px' }} />
+        
+        {/* ריבוע קטן תחתון */}
+        <div style={{ width: '22px', height: '4px', backgroundColor: '#817F75' }} />
+      </div>
+
+
+
+
+
+      
 
       {/* SVG וטקסט בצד שמאל למטה */}
       <div className="absolute bottom-24 left-28 flex items-center gap-4">
