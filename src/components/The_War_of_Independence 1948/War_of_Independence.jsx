@@ -9,18 +9,20 @@ function ToggleButton() {
       className="cursor-pointer select-none"
     >
       <svg
-        width="45"
-        height="22"
-        viewBox="0 0 45 22"
+        width="52"
+        height="26"
+        viewBox="0 0 52 26"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect width="45" height="22" rx="11" fill="#817F75" />
+        <rect width="52" height="26" rx="13" fill="transparent" stroke="#817F75" strokeWidth="1" />
         <circle
-          cx={on ? 11 : 34}
-          cy="11"
+          cx={on ? 39 : 13}
+          cy="13"
           r="9"
-          fill="#E3DCDC"
+          fill="#817F75"
+          stroke="#817F75"
+          strokeWidth="1"
           style={{ transition: "all 0.3s" }}
         />
       </svg>
@@ -325,23 +327,57 @@ function WarOfIndependence() {
 
         {/* טקסט בצד ימין */}
         <div className="flex flex-row-reverse items-center justify-end gap-36">
-          <span
-            style={{
-              fontFamily: "80-kb",
-              fontWeight: 400,
-              fontSize: "30px",
-              lineHeight: "106%",
-              letterSpacing: "17%",
-              textAlign: "right",
-              opacity: 0.79,
-              color: "#E3DCDC",
-              cursor: "pointer",
-            }}
-            className="hover:text-white transition-colors"
-            onClick={handleSignalsClick}
-          >
-            אותות
-          </span>
+          <div style={{ position: "relative", display: "inline-block" }}>
+            {/* הטקסט הראשון (צללית) - בצבע בהיר יותר */}
+            <span
+              style={{
+                fontFamily: "80-kb",
+                fontWeight: 400,
+                fontSize: "30px",
+                lineHeight: "106%",
+                letterSpacing: "17%",
+                textAlign: "right",
+                opacity: 0.79,
+                color: "#E3DCDC",
+                cursor: "pointer",
+                position: "absolute",
+                top: "0px",
+                right: "-4px",
+                width: "101.90471649169922px",
+                height: "21px",
+                display: "inline-block",
+                zIndex: 1,
+              }}
+              className="hover:opacity-90 transition-opacity"
+              onClick={handleSignalsClick}
+            >
+              אותות
+            </span>
+            
+            {/* הטקסט השני (עיקרי) - בצבע כהה יותר */}
+            <span
+              style={{
+                fontFamily: "80-kb",
+                fontWeight: 400,
+                fontSize: "30px",
+                lineHeight: "106%",
+                letterSpacing: "17%",
+                textAlign: "right",
+                opacity: 0.25,
+                color: "#817F75",
+                cursor: "pointer",
+                display: "inline-block",
+                width: "101.90471649169922px",
+                height: "21px",
+                position: "relative",
+                zIndex: 2,
+              }}
+              className="hover:text-white transition-colors"
+              onClick={handleSignalsClick}
+            >
+              אותות
+            </span>
+          </div>
 
           <span
             className="text-[#817F75] text-[15px] font-[400] leading-[106%] text-right cursor-pointer hover:text-white transition-colors"
