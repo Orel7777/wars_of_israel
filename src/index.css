@@ -50,3 +50,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@keyframes fillDown {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}

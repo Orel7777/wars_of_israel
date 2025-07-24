@@ -35,6 +35,8 @@ function WarOfIndependence() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [selectedWord, setSelectedWord] = useState(null);
+  const [linesAnimation, setLinesAnimation] = useState(0); // 0 = למעלה, 1 = למטה
+  const [showColoredRectangles, setShowColoredRectangles] = useState(false);
   
   // הגדרות למיקום המלבן - תוכל לשנות את הערכים האלה
   const rectangleSettings = {
@@ -92,6 +94,21 @@ function WarOfIndependence() {
 
   const handleWordClick = (word) => {
     setSelectedWord(word);
+    
+    // אם לוחצים על "החזית הנגדית", התחל אנימציה
+    if (word === "החזית הנגדית") {
+      setLinesAnimation(1); // התחל אנימציה למטה
+      setShowColoredRectangles(false); // איפוס המלבנים הצבעוניים
+      
+      // אחרי 3 שניות (כאשר הקווים נעלמו), הצג את המלבנים הצבעוניים
+      setTimeout(() => {
+        console.log("Showing colored rectangles!"); // הדפסה לדיבוג
+        setShowColoredRectangles(true);
+      }, 3000);
+    } else {
+      setLinesAnimation(0); // החזר למעלה
+      setShowColoredRectangles(false); // הסתר המלבנים הצבעוניים
+    }
   };
 
   // פונקציה שמחזירה את התוכן המתאים לכל מילה
@@ -124,15 +141,208 @@ function WarOfIndependence() {
           </div>
         );
       }
-      case "החזית הנגדית":
+            case "החזית הנגדית": {
+        // חישוב המיקום של הקווים בהתבסס על האנימציה
+        const linesTop = linesAnimation * 207; // 207px = גובה המלבן
+        
+        // נתוני המלבנים הצבעוניים
+        const coloredRectangles = [
+          { width: "36px", background: "#044929" },//ירוק
+          { width: "39px", background: "#9F090C" },//אדום
+          { width: "39px", background: "#E3DCDC" },//לבן
+          { width: "39px", background: "#044929" },//ירוק
+          { width: "39px", background: "#044929" },//ירוק
+          { width: "39px", background: "#9F090C" },//אדום
+          { width: "39px", background: "#E3DCDC" },//לבן
+          { width: "39px", background: "#111212" },//שחור
+          { width: "39px", background: "#111212" },//שחור
+          { width: "39px", background: "#E3DCDC" },//לבן
+          { width: "39px", background: "#E0981B" },//כתום /צהוב
+          { width: "39px", background: "#9F090C" },//אדום
+          { width: "39px", background: "#9F090C" },//אדום
+          { width: "39px", background: "#E3DCDC" },//לבן
+          { width: "39px", background: "#044929" },//ירוק
+          { width: "39px", background: "#111212" },//שחור 
+          { width: "39px", background: "#111212" },//שחור
+          { width: "39px", background: "#E3DCDC" }, // לבן 
+          { width: "39px", background: "#9F090C" }, // אדום
+          { width: "1fr", background: "#044929" } // ירוק
+        ];
+        
         return (
           <div style={{ 
             width: "100%", 
             height: "100%", 
             border: "1px solid #817F75",
-            backgroundColor: "transparent"
-          }} />
+            backgroundColor: "transparent",
+            position: "relative",
+            overflow: "hidden"
+          }}>
+            {/* המלבנים הצבעוניים - מופיעים אחרי האנימציה */}
+            {showColoredRectangles && (
+              <div style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                gridTemplateColumns: "36px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 39px 1fr"
+              }}>
+                {coloredRectangles.map((rect, index) => {
+                  console.log(`Rectangle ${index + 1}:`, rect); // הדפסה לדיבוג
+                  
+                  // הדפסה מיוחדת למלבן האחרון
+                  if (index === 20) {
+                    console.log("LAST RECTANGLE:", rect);
+                    console.log("LAST RECTANGLE ANIMATION DELAY:", index * 0.1, "seconds");
+                  }
+                  
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        width: "100%", // עם grid, width: 100% יעבוד
+                        height: "0%", // מתחיל מ-0
+                        background: rect.background,
+                        transformOrigin: "top",
+                        animation: `fillDown 2s ease-in-out ${index * 0.1}s forwards`, // עיכוב מדורג
+                        border: "1px solid rgba(255,255,255,0.1)", // גבול לדיבוג
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            
+            {/* הקווים שיורדים למטה באנימציה */}
+            <div style={{
+              position: "absolute",
+              top: `${linesTop}px`,
+              left: "0",
+              width: "100%",
+              height: "100%",
+              transition: "top 3s ease-in-out"
+            }}>
+              {/* קבוצה שמאלית - 4 קווים */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% - 270px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% - 230px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% - 190px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% - 150px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+
+              {/* קבוצה אמצעית - 2 קווים */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% - 20px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% + 20px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+
+              {/* קבוצה ימנית - 4 קווים */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% + 150px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% + 190px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% + 230px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: "calc(50% + 270px)",
+                  top: "0",
+                  width: "1px",
+                  height: "100%",
+                  backgroundColor: "#817F75",
+                  opacity: 1,
+                }}
+              />
+            </div>
+          </div>
         );
+      }
       case "נפגעים":
         return (
           <div style={{ 
