@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import LeftSidebar from "./LeftSidebar";
+import "./animations.css";
 import TimelineChart from "./TimelineChart";
 import BottomFlag from "./BottomFlag";
 import MainDisplay from "./MainDisplay";
