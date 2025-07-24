@@ -1,0 +1,107 @@
+/* אנימציות למלחמת לבנון הראשונה */
+
+/* אנימציה למלבנים הצבעוניים - מתמלאים מלמעלה למטה */
+@keyframes fillDown {
+  0% {
+    height: 0%;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+/* אנימציה לקווים שיורדים למטה */
+@keyframes linesDown {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 207px;
+    opacity: 0.3;
+  }
+}
+
+/* אנימציה לקווים שחוזרים למעלה */
+@keyframes linesUp {
+  0% {
+    top: 207px;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+/* אנימציה להופעת המלבנים הצבעוניים */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* אנימציה להיעלמות המלבנים הצבעוניים */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* אנימציה לכפתור ההחלפה */
+@keyframes buttonHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* אנימציה לטקסט שנבחר */
+@keyframes textSelect {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* אנימציה למלבן החצוי בזמן לחימה */
+@keyframes fillProgress {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 50%;
+    opacity: 1;
+  }
+} 

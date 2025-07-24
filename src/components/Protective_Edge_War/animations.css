@@ -1,0 +1,41 @@
+/* אנימציות למבצע צוק איתן */
+
+@keyframes linesDown {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 207px;
+    opacity: 0;
+  }
+}
+
+@keyframes linesUp {
+  0% {
+    top: 207px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fillDown {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+} 

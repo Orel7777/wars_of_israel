@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import WarOfIndependence from "./components/The_War_of_Independence 1948/War_of_Independence";
+import SecondLebanonWar from "./components/The_Second_Lebanon_War_2006/Second_Lebanon_War";
+import FirstLebanonWar from "./components/The_First_Lebanon_War_2006/First_Lebanon_War";
+import SixDayWar from "./components/The Six-Day_War/Six_Day_War";
+import SinaiWar from "./components/Sinai_War/Sinai_War";
+import ProtectiveEdgeWar from "./components/Protective_Edge_War/Protective_Edge_War";
+import WarOfAttrition from "./components/The_War_of_Attrition/War_of_Attrition";
+import YomKippurWar from "./components/Yom_Kippur_War/Yom_Kippur_War";
 
 function ToggleButton() {
   const [on, setOn] = useState(false);
@@ -32,8 +39,14 @@ function ToggleButton() {
 }
 
 function RibbonLeft() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/independence");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -59,8 +72,14 @@ function RibbonLeft() {
 }
 
 function RibbonCenter() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/sinai");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -82,8 +101,14 @@ function RibbonCenter() {
 }
 
 function RibbonRight() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/sixday");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -105,8 +130,14 @@ function RibbonRight() {
 }
 
 function SecondRowLeft() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/attrition");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -492,8 +523,14 @@ function SecondRowLeft() {
 }
 
 function SecondRowCenter() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/yom-kippur");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -517,8 +554,14 @@ function SecondRowCenter() {
 }
 
 function SecondRowRight() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/lebanon1982");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -554,8 +597,14 @@ function SecondRowRibbons() {
 }
 
 function ThirdRowLeft() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/lebanon2006");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -581,8 +630,14 @@ function ThirdRowLeft() {
 }
 
 function ThirdRowCenter() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/protective-edge");
+  };
+
   return (
-    <div className="cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="cursor-pointer hover:opacity-80 transition-opacity" onClick={handleClick}>
       <svg
         width="282"
         height="62"
@@ -908,6 +963,13 @@ function App() {
       <Routes>
         <Route path="/" element={<AppMain />} />
         <Route path="/independence" element={<WarOfIndependence />} />
+        <Route path="/lebanon2006" element={<SecondLebanonWar />} />
+        <Route path="/lebanon1982" element={<FirstLebanonWar />} />
+        <Route path="/sixday" element={<SixDayWar />} />
+        <Route path="/sinai" element={<SinaiWar />} />
+        <Route path="/protective-edge" element={<ProtectiveEdgeWar />} />
+        <Route path="/attrition" element={<WarOfAttrition />} />
+        <Route path="/yom-kippur" element={<YomKippurWar />} />
       </Routes>
     </BrowserRouter>
   );

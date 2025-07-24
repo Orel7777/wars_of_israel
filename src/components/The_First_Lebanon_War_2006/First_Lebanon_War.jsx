@@ -7,7 +7,7 @@ import BottomFlag from "./BottomFlag";
 import MainDisplay from "./MainDisplay";
 import BackgroundLines from "./BackgroundLines";
 
-function SecondLebanonWar() {
+function FirstLebanonWar() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [selectedWord, setSelectedWord] = useState(null);
@@ -113,4 +113,4 @@ function SecondLebanonWar() {
   );
 }
 
-export default SecondLebanonWar; 
+export default FirstLebanonWar; 
