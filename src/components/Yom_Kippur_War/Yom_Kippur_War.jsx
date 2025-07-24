@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import LeftSidebar from "./LeftSidebar";
 import "./animations.css";
@@ -8,6 +9,7 @@ import MainDisplay from "./MainDisplay";
 import BackgroundLines from "./BackgroundLines";
 
 function YomKippurWar() {
+  const navigate = useNavigate();
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [selectedWord, setSelectedWord] = useState(null);
@@ -48,6 +50,19 @@ function YomKippurWar() {
       // נוסיף לערך הגלילה הוירטואלי בהתאם לכיוון הגלילה
       setScrollY((prev) => {
         const newValue = prev + event.deltaY * 0.5; // מכפילים ב-0.5 כדי שיהיה יותר חלק
+        
+        // אם הגלילה הגיעה למינימום (0) וגוללים למעלה, התחל מעבר לעמוד מלחמת ההתשה
+        if (newValue <= 0 && event.deltaY < 0) {
+          navigate("/attrition");
+          return 0;
+        }
+        
+        // אם הגלילה הגיעה למקסימום (300) וגוללים למטה, התחל מעבר לעמוד מלחמת לבנון הראשונה
+        if (newValue >= 300 && event.deltaY > 0) {
+          navigate("/lebanon1982");
+          return 300;
+        }
+        
         return Math.max(0, Math.min(300, newValue)); // מגבילים בין 0 ל-300
       });
     };
@@ -58,7 +73,7 @@ function YomKippurWar() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
-  }, []);
+  }, [navigate]);
 
   // חישוב שקיפות הקווים בהתאם לגלילה הוירטואלית
   const linesOpacity = Math.max(0, 1 - scrollY / 200);

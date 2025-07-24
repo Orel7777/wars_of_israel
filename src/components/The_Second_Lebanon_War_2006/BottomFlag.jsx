@@ -9,14 +9,14 @@ function BottomFlag() {
           position: "absolute",
           width: "273px",
           height: "1px",
-          right: "0px",
+          right: "-31px",
           bottom: "130px",
           background: "#817F75",
         }}
       />
       
       {/* SVG וטקסט בצד ימין למטה מתחת לעמוד */}
-      <div className="absolute bottom-8 right-20 flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 right-14 flex flex-col items-center gap-2">
         <svg
           width="108"
           height="23"

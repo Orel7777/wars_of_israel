@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import LeftSidebar from "./LeftSidebar";
 import "./animations.css";
@@ -8,11 +9,13 @@ import MainDisplay from "./MainDisplay";
 import BackgroundLines from "./BackgroundLines";
 
 function WarOfIndependence() {
+  const navigate = useNavigate();
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [selectedWord, setSelectedWord] = useState(null);
   const [linesAnimation, setLinesAnimation] = useState(0); // 0 = למעלה, 1 = למטה
   const [showColoredRectangles, setShowColoredRectangles] = useState(false);
+
   
   // הגדרות למיקום המלבן - תוכל לשנות את הערכים האלה
   const rectangleSettings = {
@@ -37,6 +40,8 @@ function WarOfIndependence() {
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
 
+
+
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
@@ -48,6 +53,13 @@ function WarOfIndependence() {
       // נוסיף לערך הגלילה הוירטואלי בהתאם לכיוון הגלילה
       setScrollY((prev) => {
         const newValue = prev + event.deltaY * 0.5; // מכפילים ב-0.5 כדי שיהיה יותר חלק
+        
+        // אם הגלילה הגיעה למקסימום (300), התחל מעבר לעמוד סיני
+        if (newValue >= 300 && event.deltaY > 0) {
+          navigate("/sinai");
+          return 300;
+        }
+        
         return Math.max(0, Math.min(300, newValue)); // מגבילים בין 0 ל-300
       });
     };
@@ -58,7 +70,7 @@ function WarOfIndependence() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
-  }, []);
+  }, [navigate]);
 
   // חישוב שקיפות הקווים בהתאם לגלילה הוירטואלית
   const linesOpacity = Math.max(0, 1 - scrollY / 200);

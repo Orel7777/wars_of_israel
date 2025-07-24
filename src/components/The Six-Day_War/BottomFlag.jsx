@@ -9,7 +9,7 @@ function BottomFlag() {
           position: "absolute",
           width: "273px",
           height: "1px",
-          right: "0px",
+          right: "-31px",
           bottom: "130px",
           background: "#817F75",
         }}
