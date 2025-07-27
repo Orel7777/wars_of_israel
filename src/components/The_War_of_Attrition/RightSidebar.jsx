@@ -1,34 +1,29 @@
 import React from "react";
 
 function RightSidebar() {
-  // פונקציה ליצירת מלבן (קו עבה) בהתבסס על העיצוב מה-LeftSidebar
+  // פונקציה ליצירת מלבן (קו עבה)
   const createRectangle = (key) => (
     <div
       key={key}
       style={{
-        width: "22px",
-        height: "5px",
-        borderWidth: "1px",
-        transform: "rotate(0deg)",
-        opacity: 1,
-        backgroundColor: "#817F75",
-        border: "1px solid #817F75",
+        boxSizing: 'border-box',
+        width: '22px',
+        height: '5px',
+        background: '#817F75',
+        border: '1px solid #817F75',
       }}
     />
   );
 
-  // פונקציה ליצירת קו רגיל (קו דק) בהתבסס על העיצוב מה-LeftSidebar
+  // פונקציה ליצירת קו רגיל (קו דק)
   const createLine = (key) => (
     <div
       key={key}
       style={{
-        width: "22px",
-        height: "0px",
-        borderWidth: "1px",
-        transform: "rotate(0deg)",
-        opacity: 1,
-        backgroundColor: "#817F75",
-        border: "1px solid #817F75",
+        width: '22px',
+        height: '0px',
+        background: '#817F75',
+        border: '1px solid #817F75',
       }}
     />
   );

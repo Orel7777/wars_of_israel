@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function TimelineChart({ isLargeScreen }) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const TimelineContent = () => (
-    <div style={{ marginLeft: "51px", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+    <div
+      style={{
+        marginLeft: "51px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end",
+      }}
+    >
       {/* 6 פסים עם מרווחים */}
-      {Array.from({ length: 6 }, (_, i) => (
+      {Array.from({ length: 7 }, (_, i) => (
         <div
           key={`top-lines-${i}`}
           style={{
@@ -17,17 +36,41 @@ function TimelineChart({ isLargeScreen }) {
         />
       ))}
 
-      {/* ריבוע קטן */}
-      <div
-        style={{
-          width: "22px",
-          height: "5px",
-          backgroundColor: "#817F75",
-          marginBottom: "8px",
-        }}
-      />
+      {/* ריבוע מודגש עם מספר 1956 - תמיד מוצג */}
+      <div style={{ 
+        display: "flex", 
+        alignItems: "center", 
+        gap: "8px", 
+        marginBottom: "8px",
+        transition: "all 0.5s ease-in-out"
+      }}>
+        <span
+          style={{
+            fontFamily: "80-kb",
+            fontWeight: 400,
+            fontSize: "18px",
+            lineHeight: "100%",
+            letterSpacing: "0%",
+            color: "#FFFFFF",
+            opacity: 1,
+            width: "43px",
+            height: "11px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          1956
+        </span>
+        <div
+          style={{
+            width: "38px",
+            height: "5px",
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #FFFFFF",
+            opacity: 1,
+          }}
+        />
+      </div>
 
-      {/* 15 פסים */}
       {Array.from({ length: 10 }, (_, i) => (
         <div
           key={`line1-${i}`}
@@ -46,16 +89,6 @@ function TimelineChart({ isLargeScreen }) {
         style={{
           width: "22px",
           height: "5px",
-          backgroundColor: "#817F75",
-          marginBottom: "8px",
-        }}
-      />
-
-      {/* ריבוע גבוה */}
-      <div
-        style={{
-          width: "22px",
-          height: "28px",
           backgroundColor: "#817F75",
           marginBottom: "8px",
         }}
@@ -85,7 +118,6 @@ function TimelineChart({ isLargeScreen }) {
         }}
       />
 
-      {/* 10 פסים */}
       {Array.from({ length: 8 }, (_, i) => (
         <div
           key={`line2-${i}`}
@@ -110,7 +142,7 @@ function TimelineChart({ isLargeScreen }) {
       />
 
       {/* 30 פסים */}
-      {Array.from({ length: 24 }, (_, i) => (
+      {Array.from({ length: 23 }, (_, i) => (
         <div
           key={`line3-${i}`}
           style={{
@@ -134,7 +166,7 @@ function TimelineChart({ isLargeScreen }) {
       />
 
       {/* 12 פסים */}
-      {Array.from({ length: 7 }, (_, i) => (
+      {Array.from({ length: 8 }, (_, i) => (
         <div
           key={`line4-${i}`}
           style={{
@@ -147,19 +179,32 @@ function TimelineChart({ isLargeScreen }) {
         />
       ))}
 
-      {/* ריבוע בינוני */}
       <div
         style={{
           width: "22px",
-          height: "18px",
+          height: "5px",
           backgroundColor: "#817F75",
-          marginBottom: "8px",
+          marginBottom: "6px",
         }}
       />
 
-      {/* ריבוע קטן תחתון */}
       <div
-        style={{ width: "22px", height: "4px", backgroundColor: "#817F75" }}
+        style={{
+          width: "22px",
+          height: "1px",
+          backgroundColor: "#817F75",
+          border: "1px solid #44433E",
+          marginBottom: "4px",
+        }}
+      />
+
+      <div
+        style={{
+          width: "22px",
+          height: "5px",
+          backgroundColor: "#817F75",
+          marginBottom: "6px",
+        }}
       />
     </div>
   );
@@ -172,41 +217,10 @@ function TimelineChart({ isLargeScreen }) {
         top: isLargeScreen ? "300px" : "200px",
       }}
     >
-      {/* שורה עליונה עם המספר 1956 והריבוע החדש */}
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-        {/* המספר 1956 */}
-        <span
-          style={{
-            fontFamily: "80-kb",
-            fontWeight: 400,
-            fontSize: "18px",
-            lineHeight: "100%",
-            letterSpacing: "0%",
-            color: "#D9D9D9",
-            opacity: 1,
-            width: "43px",
-            height: "11px",
-            whiteSpace: "nowrap",
-          }}
-        >
-          1956
-        </span>
-        {/* ריבוע חדש לפי הדרישות */}
-        <div
-          style={{
-            width: "38px",
-            height: "5px",
-            backgroundColor: "#D9D9D9",
-            border: "1px solid #D9D9D9",
-            opacity: 1,
-          }}
-        />
-      </div>
-
       {/* כל העמוד מיושר לפי הריבוע - יישור לימין */}
       <TimelineContent />
     </div>
   );
 }
 
-export default TimelineChart; 
+export default TimelineChart;

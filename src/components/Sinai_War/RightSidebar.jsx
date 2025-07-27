@@ -2,7 +2,7 @@ import React from "react";
 
 function RightSidebar() {
   // פונקציה ליצירת מלבן (קו עבה) בהתבסס על העיצוב מה-LeftSidebar
-  const createRectangle = (key) => (
+  const createRectangle = (key, isHighlighted = false) => (
     <div
       key={key}
       style={{
@@ -11,8 +11,8 @@ function RightSidebar() {
         borderWidth: "1px",
         transform: "rotate(0deg)",
         opacity: 1,
-        backgroundColor: "#817F75",
-        border: "1px solid #817F75",
+        backgroundColor: isHighlighted ? "#FFFFFF" : "#817F75",
+        border: `1px solid ${isHighlighted ? "#FFFFFF" : "#817F75"}`,
       }}
     />
   );
@@ -76,8 +76,8 @@ function RightSidebar() {
         {/* 8 קווים מתחת */}
         {createLines(8, 5)}
         
-        {/* קו מלבן */}
-        {createRectangle('rect-6')}
+        {/* קו מלבן מודגש - מלחמת סיני 1956 */}
+        {createRectangle('rect-6', true)}
         
         {/* 23 קווים מתחת */}
         {createLines(23, 6)}
@@ -96,6 +96,19 @@ function RightSidebar() {
         
         {/* קו מלבן אחרון */}
         {createRectangle('rect-final')}
+      </div>
+      
+      {/* הצגת השנה 1956 ליד המלבן המודגש */}
+      <div 
+        className="absolute text-white text-sm font-bold"
+        style={{ 
+          left: "-50px", 
+          top: "50%", 
+          transform: "translateY(-50%)",
+          marginTop: "-2px"
+        }}
+      >
+        1956
       </div>
     </div>
   );
